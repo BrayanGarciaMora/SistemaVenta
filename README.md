@@ -1,5 +1,5 @@
 
-# SystemaVenta
+# SistemaVenta
 Este proyecto fue iniciado por Brayan Garcia Mora.
 Los objetivos que se persigen:
 > Poner en practica los conocimento adquirido
