@@ -9,9 +9,9 @@ los objetivos que que se persigen:
 ## Estructura del poryecto
 
 Para la estructura de este Proyecto tenemos las siguientes capas.
-
-*Controlador
-*Modelo
-*Controlador
-*Vista
+---|---|---|---
+Controlador|
+Modelo|
+Controlador|
+Vista|
 
