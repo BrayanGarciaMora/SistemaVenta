@@ -10,7 +10,7 @@ los objetivos que que se persigen:
 
 ## Estructura del poryecto
 
-Para la estructura de este Proyecto tenemos las siguientes capas:
+### Para la estructura de este Proyecto tenemos las siguientes capas:
 
 >Controlador
 
@@ -26,25 +26,25 @@ Para la estructura de este Proyecto tenemos las siguientes capas:
 
 En la capa de Controlador nos encontraremos con la Clase:
 
-> Controlado 
+> Controlado.java
 
-> Validar 
+> Validar.java
 
 ## Capa Modelo
 
-En la capa de Modelo nos encontraremos con la Clase:
+### En la capa de Modelo nos encontraremos con la Clase:
 
->Empleado
+>Empleado.java
 
->Cliente
+>Cliente.java
 
->Producto
+>Producto.java
 
-> Venta
+> Venta.java
 
 ## Capa de vista
 
-En la campa de vista nos encontraremos con los JSP que tienen por nombre:
+### En la campa de vista nos encontraremos con los JSP que tienen por nombre:
 
 >Cliente.jsp
 
@@ -59,6 +59,6 @@ En la campa de vista nos encontraremos con los JSP que tienen por nombre:
 >RegistrarVenta.jsp
 
 
-Seguido de estas tres capas, tendremos una cuarta, para la creación de una clase, la cual se encargará de hacer la conexión con la base de datos.
+### Seguido de estas tres capas, tendremos una cuarta, para la creación de una clase, la cual se encargará de hacer la conexión con la base de datos.
 
 > Config
