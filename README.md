@@ -10,8 +10,8 @@ los objetivos que que se persigen:
 
 Para la estructura de este Proyecto tenemos las siguientes capas.
 ---|---|---|---
-Controlador|
-Modelo|
-Controlador|
-Vista|
+Controlador|x||||
+Modelo|||||
+Controlador||||
+Vista|||||
 
