@@ -5,4 +5,13 @@ los objetivos que que se persigen:
 >Modelo MVC
 >Como trabaja java JSP
 
-#**Estructura del poryecto**
+# Estructura del poryecto
+
+Para la estructura de de este Proyecto tenemos las siguentes capas.
+
+>Controlador
+>Modelo
+>Controlador
+>Vista
+>
+
