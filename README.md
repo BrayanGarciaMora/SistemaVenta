@@ -15,9 +15,11 @@ los objetivos que que se persigen:
 
 ##  Herramientas
 
-> Entorno de desarrollo Integrado(IDE) Eclipse
+> Entorno de desarrollo Integrado(IDE): Eclipse
 
 >Servidor: Apache Tomcat
+
+>Bootstrap en la ultima version 5.1.3
 
 >Mysql con el (IDE) WorkBench
 
