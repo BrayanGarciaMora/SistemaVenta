@@ -10,7 +10,7 @@ los objetivos que que se persigen:
 
 ## Estructura del poryecto
 
-Para la estructura de este Proyecto tenemos las siguientes capas.
+Para la estructura de este Proyecto tenemos las siguientes capas:
 
 >Controlador
 
@@ -22,7 +22,7 @@ Para la estructura de este Proyecto tenemos las siguientes capas.
 
 >Config
 
-##Capa de Controlador
+## Capa de Controlador
 
 En la capa de Controlador nos encontraremos con la Clase:
 
@@ -30,7 +30,7 @@ En la capa de Controlador nos encontraremos con la Clase:
 
 > Validar 
 
-##Capa Modelo
+## Capa Modelo
 
 En la capa de Modelo nos encontraremos con la Clase:
 
@@ -42,9 +42,9 @@ En la capa de Modelo nos encontraremos con la Clase:
 
 > Venta
 
-##Capa de vista
+## Capa de vista
 
-En la campa de vista nos encontraremos con los JSP que tienen por nombre
+En la campa de vista nos encontraremos con los JSP que tienen por nombre:
 
 >Cliente.jsp
 
