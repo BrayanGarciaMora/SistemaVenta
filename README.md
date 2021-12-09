@@ -2,7 +2,7 @@
 # SystemaVenta
 Este proyecto fue iniciado por Brayan Garcia Mora.
 Los objetivos que se persigen:
-> Poner en practica los conocimento acquirido
+> Poner en practica los conocimento adquirido
 
 > Modelo MVC
 
@@ -25,8 +25,6 @@ Los objetivos que se persigen:
 
 
 #### Para la estructura de este Proyecto tenemos las siguientes capas:
-
->Controlador
 
 >Modelo
 
