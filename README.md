@@ -4,6 +4,5 @@ los objetivos que que se persigen:
 >Poneer en practica los conocimento acquirido
 >Modelo MVC
 >Como trabaja java JSP
->
->
 
+#Estructura del poryecto
