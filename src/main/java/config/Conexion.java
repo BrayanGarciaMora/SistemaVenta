@@ -9,7 +9,7 @@ public class Conexion {
 
 	String url = "jdbc:mysql://localhost:3306/bd_ventas";
 	String user = "root";
-	String pass = "1234561996BGM";
+	String pass = "00000000";
 
 	public Connection conexion() throws ClassNotFoundException {
 
