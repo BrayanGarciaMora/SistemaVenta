@@ -21,24 +21,25 @@
 			<div class="card-body">
 				<form action="Controlador?menu=Empleado" method="POST">
 					<div class="mb-3">
-						<label class="form-label">Dni</label> <input type="text"
+						<label class="form-label">Dni</label> <input type="text" value=""
 							name="txtDni" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Nombre</label> <input type="text"
-							name="txtNombre" class="form-control">
+							value="${empleado.getNombre}" name="txtNombre"
+							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Telefono</label> <input type="text"
-							name="txtTelefono" class="form-control">
+							value="" name="txtTelefono" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Estado</label> <input type="text"
-							name="txtEstado" class="form-control">
+							value="" name="txtEstado" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Usuario</label> <input type="text"
-							name="txtUsuario" class="form-control">
+							value="" name="txtUsuario" class="form-control">
 					</div>
 
 					<input type="submit" name="accion" value="Agregar"
