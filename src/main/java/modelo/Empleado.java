@@ -64,11 +64,11 @@ public class Empleado {
 		this.user = user;
 	}
 
-	int idEmpleado;
-	String dni;
-	String nombre;
-	String telefono;
-	String estado;
-	String user;
+private int idEmpleado;
+private	String dni;
+private	String nombre;
+private	String telefono;
+private	String estado;
+private	String user;
 
 }

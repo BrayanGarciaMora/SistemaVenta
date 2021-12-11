@@ -18,7 +18,7 @@ public class Conexion {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			con = DriverManager.getConnection(url, user, pass);
-			System.out.println("establecio la conexion");
+			System.out.println("Se establecio la conexion Conexion");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

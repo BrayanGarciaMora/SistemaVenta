@@ -58,9 +58,9 @@ public class Validar extends HttpServlet {
 			if (em.getUser()!=null) {
 				
 				request.getRequestDispatcher("Controlador?menu=Principal").forward(request,response);
-				System.out.println("si usuario");
+				
 			}else {
-				System.out.println("no usuario");
+		
 				request.getRequestDispatcher("index.jsp").forward(request,response);
 				
 			}

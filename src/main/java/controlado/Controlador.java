@@ -21,6 +21,7 @@ public class Controlador extends HttpServlet {
 	Empleado em = new Empleado();
 	EmpleadoDAO edao = new EmpleadoDAO();
 
+	private int id;
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
@@ -45,6 +46,7 @@ public class Controlador extends HttpServlet {
 		}
 		if (menu.equals("Empleado")) {
 			switch (accion) {
+
 			case "Listar":
 				List lista = edao.listar();
 				request.setAttribute("empleados", lista);
@@ -65,12 +67,13 @@ public class Controlador extends HttpServlet {
 				em.setUser(user);
 
 				edao.agregar(em);
+				
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 
 				break;
 
 			case "Editar":
-
+				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 				break;
 
 			case "Eliminar":

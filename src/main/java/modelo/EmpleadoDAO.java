@@ -19,7 +19,7 @@ public class EmpleadoDAO {
 	int r;
 
 	public Empleado validar(String user, String dni) {
-		System.out.println(user + dni);
+
 		Empleado empleado = new Empleado();
 
 		String sql = "SELECT * FROM empleado WHERE User=? and Dni=?";
@@ -32,7 +32,6 @@ public class EmpleadoDAO {
 			ps.setString(2, dni);
 
 			rs = ps.executeQuery();
-			System.out.println("hasta qui vamos bien");
 
 			while (rs.next()) {
 
@@ -49,6 +48,7 @@ public class EmpleadoDAO {
 
 	// Operaciones de tipo CRUD
 
+	//Metodo par realizar la parete del [Read] Del CRUD
 	public List listar() {
 
 		String sql = "SELECT * FROM empleado";
@@ -79,8 +79,9 @@ public class EmpleadoDAO {
 		return lista;
 	}
 
+	//Metodo agregar Para formar la parte De [Create] del CRUP
 	public int agregar(Empleado em) {
-		String sql = "INSERT INTO empleado(Dni,Nombres,Telefono,Estado,User) VALUES(?,?,?,?,?";
+		String sql = "INSERT INTO empleado (Dni,Nombres,Telefono,Estado,User) VALUES(?,?,?,?,?)";
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
@@ -90,7 +91,9 @@ public class EmpleadoDAO {
 			ps.setString(3, em.getTelefono());
 			ps.setString(4, em.getEstado());
 			ps.setString(5, em.getUser());
-			ps.executeQuery();
+
+			ps.executeUpdate();
+
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -101,7 +104,7 @@ public class EmpleadoDAO {
 
 	public Empleado listarId(int id) {
 		Empleado emp = new Empleado();
-		String sql = "SELECT *FROM empleado WHERE IdEmpleado =" + id;
+		String sql = "SELECT * FROM empleado WHERE IdEmpleado =" + id;
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
@@ -123,7 +126,7 @@ public class EmpleadoDAO {
 
 	public int actualizar(Empleado em) {
 
-		String sql = "UPDATE  empleado SET Dni=?, Nombres=? ,Telefono=?, Estado=?, User=? WHERE IdEmpleado=?";
+		String sql = "UPDATE  empleado SET Dni=?, Nombres=?, Telefono=?, Estado=?, User=? WHERE IdEmpleado=?";
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
