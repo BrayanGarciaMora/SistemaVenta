@@ -18,6 +18,7 @@ public class EmpleadoDAO {
 
 	int r;
 
+	// -----------------------------------------------------------------------------
 	public Empleado validar(String user, String dni) {
 
 		Empleado empleado = new Empleado();
@@ -48,7 +49,9 @@ public class EmpleadoDAO {
 
 	// Operaciones de tipo CRUD
 
-	//Metodo par realizar la parete del [Read] Del CRUD
+	// Metodo par realizar la parete del [Read] Del CRUD
+
+	// -----------------------------------------------------------------------------
 	public List listar() {
 
 		String sql = "SELECT * FROM empleado";
@@ -79,7 +82,9 @@ public class EmpleadoDAO {
 		return lista;
 	}
 
-	//Metodo agregar Para formar la parte De [Create] del CRUP
+	// Metodo agregar Para formar la parte De [Create] del CRUP
+
+	// -----------------------------------------------------------------------------
 	public int agregar(Empleado em) {
 		String sql = "INSERT INTO empleado (Dni,Nombres,Telefono,Estado,User) VALUES(?,?,?,?,?)";
 		try {
@@ -102,6 +107,8 @@ public class EmpleadoDAO {
 
 	}
 
+	// -----------------------------------------------------------------------------
+
 	public Empleado listarId(int id) {
 		Empleado emp = new Empleado();
 		String sql = "SELECT * FROM empleado WHERE IdEmpleado =" + id;
@@ -111,6 +118,7 @@ public class EmpleadoDAO {
 			rs = ps.executeQuery();
 
 			while (rs.next()) {
+
 				emp.setDni(rs.getString(2));
 				emp.setNombre(rs.getString(3));
 				emp.setTelefono(rs.getString(4));
@@ -123,6 +131,8 @@ public class EmpleadoDAO {
 		}
 		return emp;
 	}
+
+	// -----------------------------------------------------------------------------
 
 	public int actualizar(Empleado em) {
 
@@ -137,7 +147,7 @@ public class EmpleadoDAO {
 			ps.setString(4, em.getEstado());
 			ps.setString(5, em.getUser());
 			ps.setInt(6, em.getIdEmpleado());
-			ps.executeQuery();
+			ps.executeUpdate();
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -145,14 +155,15 @@ public class EmpleadoDAO {
 		return r;
 	}
 
+//-----------------------------------------------------------------------------
 	public void delete(int id) {
-
-		String sql = "DELETE FROM empleado WHERE IdEmpleado=" + id;
+		System.out.println("El id es " + id);
+		String sql = "DELETE FROM empleado WHERE IdEmpleado =" + id;
 
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
-			ps.executeQuery();
+			ps.executeUpdate();
 
 		} catch (Exception e) {
 			// TODO: handle exception

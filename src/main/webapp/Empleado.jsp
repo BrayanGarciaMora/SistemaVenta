@@ -14,36 +14,41 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Maestro de empleados</h1>
 
 	<div class="d-flex">
 		<div class="card col-sm-4">
 			<div class="card-body">
 				<form action="Controlador?menu=Empleado" method="POST">
 					<div class="mb-3">
-						<label class="form-label">Dni</label> <input type="text" value=""
-							name="txtDni" class="form-control">
+						<label class="form-label">Dni</label> <input type="text"
+							value="${empleado.getDni() }" name="txtDni" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Nombre</label> <input type="text"
-							value="${empleado.getNombre}" name="txtNombre"
+							value="${empleado.getNombre()}" name="txtNombre"
 							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Telefono</label> <input type="text"
-							value="" name="txtTelefono" class="form-control">
+							value="${empleado.getTelefono() }" name="txtTelefono"
+							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Estado</label> <input type="text"
-							value="" name="txtEstado" class="form-control">
+							value="${empleado.getEstado() }" name="txtEstado"
+							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Usuario</label> <input type="text"
-							value="" name="txtUsuario" class="form-control">
+							value="${empleado.getUser() }" name="txtUsuario"
+							class="form-control">
 					</div>
 
 					<input type="submit" name="accion" value="Agregar"
-						class="btn btn-primary">
+						class="btn btn-info">
+						
+					 <input type="submit" name="accion"
+						value="Actualizar" class="btn btn-success">
 				</form>
 			</div>
 		</div>
@@ -66,15 +71,16 @@
 				<tbody>
 					<c:forEach var="emp" items="${empleados}">
 						<tr>
+							
 							<td>${emp.getDni()}</td>
 							<td>${emp.getNombre()}</td>
 							<td>${emp.getTelefono()}</td>
 							<td>${emp.getEstado()}</td>
 							<td>${emp.getUser()}</td>
 							<td><a class="btn btn-warning"
-								href="Controlador?menu=Empleado&accion=Editar&id=${em.getIdEmpleado()}">
+								href="Controlador?menu=Empleado&accion=Editar&id=${emp.getIdEmpleado()}">
 									Editar </a> <a class="btn btn-danger"
-								href="Controlador?menu=Empleado&accion=Eliminar&id=${em.getIdEmpleado()}">
+								href="Controlador?menu=Empleado&accion=Eliminar&id=${emp.getIdEmpleado()}">
 									Eliminar</a></td>
 						<tr>
 					</c:forEach>

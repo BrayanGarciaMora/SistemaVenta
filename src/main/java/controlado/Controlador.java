@@ -21,7 +21,7 @@ public class Controlador extends HttpServlet {
 	Empleado em = new Empleado();
 	EmpleadoDAO edao = new EmpleadoDAO();
 
-	 int ide;
+	int ide;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -46,6 +46,7 @@ public class Controlador extends HttpServlet {
 			request.getRequestDispatcher("Principal.jsp").forward(request, response);
 		}
 		if (menu.equals("Empleado")) {
+		
 			switch (accion) {
 
 			case "Listar":
@@ -55,7 +56,7 @@ public class Controlador extends HttpServlet {
 				break;
 
 			case "Agregar":
-				System.out.println("llego hasta aqi");
+
 				String dni = request.getParameter("txtDni");
 				String nombre = request.getParameter("txtNombre");
 				String telefono = request.getParameter("txtTelefono");
@@ -68,28 +69,48 @@ public class Controlador extends HttpServlet {
 				em.setUser(user);
 
 				edao.agregar(em);
-
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
-
 				break;
 
 			case "Editar":
 				ide = Integer.parseInt(request.getParameter("id"));
+				System.out.println(ide);
 				Empleado e = edao.listarId(ide);
 				request.setAttribute("empleado", e);
+				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
+				break;
+			case "Actualizar":
+
+				String dniUp = request.getParameter("txtDni");
+				String nombreUp = request.getParameter("txtNombre");
+				String telefonoUp = request.getParameter("txtTelefono");
+				String estadoUp = request.getParameter("txtEstado");
+				String userUp = request.getParameter("txtUsuario");
+				em.setDni(dniUp);
+				em.setNombre(nombreUp);
+				em.setTelefono(telefonoUp);
+				em.setEstado(estadoUp);
+				em.setUser(userUp);
+
+				em.setIdEmpleado(ide);
+				edao.actualizar(em);
+				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
 			case "Eliminar":
 
 				ide = Integer.parseInt(request.getParameter("id"));
+				System.out.println("eliminar el id: " + ide);
 				edao.delete(ide);
+				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
 			default:
-				throw new AssertionError();
 
+				throw new AssertionError();
 			}
 			request.getRequestDispatcher("Empleado.jsp").forward(request, response);
+
 		}
 		if (menu.equals("Producto")) {
 			request.getRequestDispatcher("Producto.jsp").forward(request, response);
