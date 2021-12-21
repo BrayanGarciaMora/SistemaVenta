@@ -82,7 +82,7 @@
 									Editar </a> <a class="btn btn-danger"
 								href="Controlador?menu=Empleado&accion=Eliminar&id=${emp.getIdEmpleado()}">
 									Eliminar</a></td>
-						<tr>
+						</tr>
 					</c:forEach>
 				</tbody>
 

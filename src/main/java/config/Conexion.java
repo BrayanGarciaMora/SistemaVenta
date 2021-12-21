@@ -8,8 +8,8 @@ public class Conexion {
 	Connection con;
 
 	String url = "jdbc:mysql://localhost:3306/bd_ventas";
-	String user = "root";
-	String pass = "000000";
+	String user = "BGM";
+	String pass = "Pass2021*";
 
 	public Connection conexion() throws ClassNotFoundException {
 

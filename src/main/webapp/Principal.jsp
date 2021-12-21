@@ -42,7 +42,7 @@
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"
-						class="btn btn-outline-light" href="Controlador?menu=Cliente" target="myFrame">Cliente</a></li>
+						class="btn btn-outline-light" href="Controlador?menu=Cliente&accion=Listar" target="myFrame">Cliente</a></li>
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"

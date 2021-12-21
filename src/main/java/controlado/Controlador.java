@@ -21,6 +21,10 @@ public class Controlador extends HttpServlet {
 	Empleado em = new Empleado();
 	EmpleadoDAO edao = new EmpleadoDAO();
 
+	// -------------------------------------------
+	Cliente cliente = new Cliente();
+	ClienteDAO clienteDAO = new ClienteDAO();
+
 	int ide;
 
 	/**
@@ -46,7 +50,7 @@ public class Controlador extends HttpServlet {
 			request.getRequestDispatcher("Principal.jsp").forward(request, response);
 		}
 		if (menu.equals("Empleado")) {
-		
+
 			switch (accion) {
 
 			case "Listar":
@@ -115,7 +119,33 @@ public class Controlador extends HttpServlet {
 		if (menu.equals("Producto")) {
 			request.getRequestDispatcher("Producto.jsp").forward(request, response);
 		}
+
+		// ------------------------------------------------------------------------------------------
 		if (menu.equals("Cliente")) {
+
+			switch (accion) {
+
+			case "Listar":
+				List listaClinte = clienteDAO.listarCliente();
+
+				request.setAttribute("cliente", listaClinte);
+
+				break;
+			case "Agregar":
+
+				String dni = request.getParameter("txtDni");
+				String nombre = request.getParameter("txtNombre");
+				String direccion = request.getParameter("txtDireccion");
+				String estado = request.getParameter("txtEstado");
+				
+				cliente.setDni(dni);
+				cliente.setNombre(nombre);
+				cliente.setDireccion(direccion);
+				cliente.setEstado(estado);
+				
+				clienteDAO.agregar(cliente);
+				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+			}
 			request.getRequestDispatcher("Cliente.jsp").forward(request, response);
 		}
 		if (menu.equals("CrearVenta")) {
