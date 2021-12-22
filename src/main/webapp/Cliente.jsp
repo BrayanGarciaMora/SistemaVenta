@@ -21,28 +21,23 @@
 				<form action="Controlador?menu=Cliente" method="POST">
 					<div class="mb-3">
 						<label class="form-label">Dni</label> <input type="text"
-							value="${empleado.getDni() }" name="txtDni" class="form-control">
+							value="${cliente.getDni()}" name="txtDni" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Nombre</label> <input type="text"
-							value="${empleado.getNombre()}" name="txtNombre"
-							class="form-control">
+							value="${cliente.getNombre()}" name="txtNombre" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Direccion</label> <input type="text"
-							value="${empleado.getTelefono() }" name="txtDireccion"
-							class="form-control">
+							value="${cliente.getDireccion()}" name="txtDireccion" class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Estado</label> <input type="text"
-							value="${empleado.getEstado() }" name="txtEstado"
-							class="form-control">
+							value="${cliente.getEstado()}" name="txtEstado" class="form-control">
 					</div>
 
 					<input type="submit" name="accion" value="Agregar"
-						class="btn btn-info">
-						
-					 <input type="submit" name="accion"
+						class="btn btn-info"> <input type="submit" name="accion"
 						value="Actualizar" class="btn btn-success">
 				</form>
 			</div>
@@ -63,18 +58,18 @@
 				</thead>
 
 				<tbody>
-					<c:forEach var="cli" items="${cliente}">
+					<c:forEach var="cli" items="${clientes}">
 						<tr>
-							
+
 							<td>${cli.getDni() }</td>
 							<td>${cli.getNombre() }</td>
 							<td>${cli.getDireccion() }</td>
 							<td>${cli.getEstado() }</td>
-					
+
 							<td><a class="btn btn-warning"
-								href="Controlador?menu=Empleado&accion=Editar&id=${emp.getIdEmpleado()}">
+								href="Controlador?menu=Cliente&accion=Editar&id=${cli.getIdCliente()}">
 									Editar </a> <a class="btn btn-danger"
-								href="Controlador?menu=Empleado&accion=Eliminar&id=${emp.getIdEmpleado()}">
+								href="Controlador?menu=Cliente&accion=Eliminar&id=${cli.getIdCliente()}">
 									Eliminar</a></td>
 						</tr>
 					</c:forEach>

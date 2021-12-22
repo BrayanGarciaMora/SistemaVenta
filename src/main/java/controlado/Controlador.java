@@ -25,7 +25,7 @@ public class Controlador extends HttpServlet {
 	Cliente cliente = new Cliente();
 	ClienteDAO clienteDAO = new ClienteDAO();
 
-	int ide;
+	int ide, idc;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -116,6 +116,8 @@ public class Controlador extends HttpServlet {
 			request.getRequestDispatcher("Empleado.jsp").forward(request, response);
 
 		}
+
+		// --------------------------------------------------------------------------------------------
 		if (menu.equals("Producto")) {
 			request.getRequestDispatcher("Producto.jsp").forward(request, response);
 		}
@@ -128,7 +130,7 @@ public class Controlador extends HttpServlet {
 			case "Listar":
 				List listaClinte = clienteDAO.listarCliente();
 
-				request.setAttribute("cliente", listaClinte);
+				request.setAttribute("clientes", listaClinte);
 
 				break;
 			case "Agregar":
@@ -137,14 +139,46 @@ public class Controlador extends HttpServlet {
 				String nombre = request.getParameter("txtNombre");
 				String direccion = request.getParameter("txtDireccion");
 				String estado = request.getParameter("txtEstado");
-				
+
 				cliente.setDni(dni);
 				cliente.setNombre(nombre);
 				cliente.setDireccion(direccion);
 				cliente.setEstado(estado);
-				
+
 				clienteDAO.agregar(cliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+				break;
+			case "Editar":
+				idc = Integer.parseInt(request.getParameter("id"));
+				System.out.println(idc);
+				Cliente c = clienteDAO.listarId(idc);
+				request.setAttribute("cliente", c);
+				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+
+				break;
+
+			case "Actualizar":
+
+				String dniUp = request.getParameter("txtDni");
+				String nombreUp = request.getParameter("txtNombre");
+				String direccionUp = request.getParameter("txtDireccion");
+				String estadoUp = request.getParameter("txtEstado");
+
+				cliente.setDni(dniUp);
+				cliente.setNombre(nombreUp);
+				cliente.setDireccion(direccionUp);
+				cliente.setEstado(estadoUp);
+				
+				cliente.setIdCliente(idc);
+				clienteDAO.actualizar(cliente);
+				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
+
+				break;
+
+			default:
+
+				throw new AssertionError();
+
 			}
 			request.getRequestDispatcher("Cliente.jsp").forward(request, response);
 		}
