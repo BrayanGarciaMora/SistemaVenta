@@ -128,5 +128,19 @@ public class ClienteDAO {
 		}
 		return r;
 	}
+	
+	
+	public void Eliminar(int id) {
+		System.out.println("El id es " + id);
+		String sql = "DELETE FROM cliente WHERE IdCliente =" + id;
 
+		try {
+			con = cn.conexion();
+			ps = con.prepareStatement(sql);
+			ps.executeUpdate();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
 }

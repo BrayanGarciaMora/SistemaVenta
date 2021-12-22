@@ -105,7 +105,7 @@ public class Controlador extends HttpServlet {
 
 				ide = Integer.parseInt(request.getParameter("id"));
 				System.out.println("eliminar el id: " + ide);
-				edao.delete(ide);
+				edao.Eliminar(ide);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
@@ -168,11 +168,18 @@ public class Controlador extends HttpServlet {
 				cliente.setNombre(nombreUp);
 				cliente.setDireccion(direccionUp);
 				cliente.setEstado(estadoUp);
-				
+
 				cliente.setIdCliente(idc);
 				clienteDAO.actualizar(cliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 
+				break;
+
+			case "Eliminar":
+				idc = Integer.parseInt(request.getParameter("id"));
+				System.out.println("eliminar el id: " + idc);
+				clienteDAO.Eliminar(idc);
+				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 				break;
 
 			default:

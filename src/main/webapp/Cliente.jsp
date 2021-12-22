@@ -25,15 +25,18 @@
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Nombre</label> <input type="text"
-							value="${cliente.getNombre()}" name="txtNombre" class="form-control">
+							value="${cliente.getNombre()}" name="txtNombre"
+							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Direccion</label> <input type="text"
-							value="${cliente.getDireccion()}" name="txtDireccion" class="form-control">
+							value="${cliente.getDireccion()}" name="txtDireccion"
+							class="form-control">
 					</div>
 					<div class="mb-3">
 						<label class="form-label">Estado</label> <input type="text"
-							value="${cliente.getEstado()}" name="txtEstado" class="form-control">
+							value="${cliente.getEstado()}" name="txtEstado"
+							class="form-control">
 					</div>
 
 					<input type="submit" name="accion" value="Agregar"
