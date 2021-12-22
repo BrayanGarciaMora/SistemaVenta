@@ -18,7 +18,7 @@ public class EmpleadoDAO {
 
 	int r;
 
-	// -----------------------------------------------------------------------------
+	// ---------------------------------------------Metodo vaidar Usuario---------//
 	public Empleado validar(String user, String dni) {
 
 		Empleado empleado = new Empleado();
@@ -51,7 +51,7 @@ public class EmpleadoDAO {
 
 	// Metodo par realizar la parete del [Read] Del CRUD
 
-	// -----------------------------------------------------------------------------
+	// ---------------------------------------------Metodo Listar---------//
 	public List listar() {
 
 		String sql = "SELECT * FROM empleado";
@@ -84,7 +84,7 @@ public class EmpleadoDAO {
 
 	// Metodo agregar Para formar la parte De [Create] del CRUP
 
-	// -----------------------------------------------------------------------------
+	// ---------------------------------------------Metodo Agregar---------//
 	public int agregar(Empleado em) {
 		String sql = "INSERT INTO empleado (Dni,Nombres,Telefono,Estado,User) VALUES(?,?,?,?,?)";
 		try {
@@ -132,7 +132,7 @@ public class EmpleadoDAO {
 		return emp;
 	}
 
-	// -----------------------------------------------------------------------------
+	// ---------------------------------------------Metodo Actualizar---------//
 
 	public int actualizar(Empleado em) {
 
@@ -155,7 +155,7 @@ public class EmpleadoDAO {
 		return r;
 	}
 
-//-----------------------------------------------------------------------------
+	// ---------------------------------------------Metodo Eliminar---------//
 	public void Eliminar(int id) {
 		System.out.println("El id es " + id);
 		String sql = "DELETE FROM empleado WHERE IdEmpleado =" + id;

@@ -7,14 +7,17 @@ import java.util.List;
 import config.Conexion;
 
 public class ClienteDAO {
+	// ---------------------------------------------------------------------
 	Conexion cn = new Conexion();
 	Connection con;
 	PreparedStatement ps;
 	ResultSet rs;
 
 	int r;
+	// ---------------------------------------------------------------------
 
 	// ---------------------------------------------Metodo Listar---------//
+
 	public List listarCliente() {
 
 		String sql = "SELECT * FROM cliente";
@@ -36,27 +39,27 @@ public class ClienteDAO {
 				cliente.setEstado(rs.getString(5));
 
 				listaCliente.add(cliente);
-
 			}
 
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.getStackTrace();
 			System.out.println("No se ha podido Establecer la conexion");
 		}
 		return listaCliente;
 	}
+
 	// ---------------------------------------------Metodo Agregar---------//
 
 	public int agregar(Cliente cliente) {
 
 		// Consulta sql
-
 		String sql = "INSERT INTO cliente (Dni, Nombres, Direccion, Estado) VALUES (?,?,?,?)";
-
 		try {
 			// pedir la conexion a la base de datos
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
+
 			// Prepara la consulta
 			ps.setString(1, cliente.getDni());
 			ps.setString(2, cliente.getNombre());
@@ -69,17 +72,18 @@ public class ClienteDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.getStackTrace();
 		}
 
 		return r;
 	}
 
-	// ----------------------------------------------------------
+	// ------------------------------------------------------------------
 
 	public Cliente listarId(int id) {
 		Cliente cliente = new Cliente();
 		String sql = "SELECT * FROM cliente WHERE IdCliente =" + id;
-		System.out.println("el ide es"+id);
+		System.out.println("el ide es" + id);
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
@@ -96,6 +100,7 @@ public class ClienteDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.getStackTrace();
 		}
 		return cliente;
 	}
@@ -106,7 +111,7 @@ public class ClienteDAO {
 
 		// Crear la consulta SQL
 		String sql = "Update cliente SET Dni =?, Nombres =?, Direccion =?, Estado =? WHERE IdCliente =?";
-		
+
 		try {
 			// Crear la conexion
 			con = cn.conexion();
@@ -125,11 +130,12 @@ public class ClienteDAO {
 			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.getStackTrace();
 		}
 		return r;
 	}
-	
-	
+
+	// ---------------------------------------------Metodo Eliminar---------//
 	public void Eliminar(int id) {
 		System.out.println("El id es " + id);
 		String sql = "DELETE FROM cliente WHERE IdCliente =" + id;
@@ -141,6 +147,7 @@ public class ClienteDAO {
 
 		} catch (Exception e) {
 			// TODO: handle exception
+			e.getStackTrace();
 		}
 	}
 }

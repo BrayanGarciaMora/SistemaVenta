@@ -176,6 +176,7 @@ public class Controlador extends HttpServlet {
 				break;
 
 			case "Eliminar":
+
 				idc = Integer.parseInt(request.getParameter("id"));
 				System.out.println("eliminar el id: " + idc);
 				clienteDAO.Eliminar(idc);
