@@ -19,29 +19,28 @@
 		<div class="card col-sm-4">
 			<div class="card-body">
 				<form action="Controlador?menu=Cliente" method="POST">
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Dni</label> <input type="text"
 							value="${cliente.getDni()}" name="txtDni" class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Nombre</label> <input type="text"
 							value="${cliente.getNombre()}" name="txtNombre"
 							class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Direccion</label> <input type="text"
 							value="${cliente.getDireccion()}" name="txtDireccion"
 							class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Estado</label> <input type="text"
 							value="${cliente.getEstado()}" name="txtEstado"
 							class="form-control">
 					</div>
 
-					<input type="submit" name="accion" value="Agregar"
-						class="btn btn-info"> <input type="submit" name="accion"
-						value="Actualizar" class="btn btn-success">
+					<input type="submit" name="accion" value="Agregar" class="btn btn-info"> 
+					<input type="submit" name="accion" value="Actualizar" class="btn btn-success">
 				</form>
 			</div>
 		</div>

@@ -19,26 +19,26 @@
 		<div class="card col-sm-4">
 			<div class="card-body">
 				<form action="Controlador?menu=Empleado" method="POST">
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Dni</label> <input type="text"
 							value="${empleado.getDni() }" name="txtDni" class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Nombre</label> <input type="text"
 							value="${empleado.getNombre()}" name="txtNombre"
 							class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Telefono</label> <input type="text"
 							value="${empleado.getTelefono() }" name="txtTelefono"
 							class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Estado</label> <input type="text"
 							value="${empleado.getEstado() }" name="txtEstado"
 							class="form-control">
 					</div>
-					<div class="mb-3">
+					<div class="mb-2">
 						<label class="form-label">Usuario</label> <input type="text"
 							value="${empleado.getUser() }" name="txtUsuario"
 							class="form-control">
