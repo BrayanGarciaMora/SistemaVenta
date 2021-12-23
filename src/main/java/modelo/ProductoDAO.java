@@ -123,7 +123,7 @@ public class ProductoDAO {
 
 	// ---------------------------------------------Metodo Eliminar---------//
 	public void EliminarProducto(int id) {
-		System.out.println("El id es " + id);
+
 		String sql = "DELETE FROM producto WHERE IdProducto =" + id;
 
 		try {

@@ -157,7 +157,7 @@ public class EmpleadoDAO {
 
 	// ---------------------------------------------Metodo Eliminar---------//
 	public void Eliminar(int id) {
-		System.out.println("El id es " + id);
+	
 		String sql = "DELETE FROM empleado WHERE IdEmpleado =" + id;
 
 		try {

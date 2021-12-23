@@ -84,7 +84,7 @@ public class Controlador extends HttpServlet {
 
 			case "Editar":
 				ide = Integer.parseInt(request.getParameter("id"));
-				System.out.println(ide);
+
 				Empleado e = edao.listarId(ide);
 				request.setAttribute("empleado", e);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
@@ -110,7 +110,7 @@ public class Controlador extends HttpServlet {
 			case "Eliminar":
 
 				ide = Integer.parseInt(request.getParameter("id"));
-				System.out.println("eliminar el id: " + ide);
+
 				edao.Eliminar(ide);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
@@ -125,7 +125,6 @@ public class Controlador extends HttpServlet {
 
 		// --------------------------------------------------------------------------------------------
 		if (menu.equals("Producto")) {
-			System.out.println("Llego Aqui");
 
 			switch (accion) {
 
@@ -138,7 +137,7 @@ public class Controlador extends HttpServlet {
 			case "Agregar":
 				double pre;
 				double precio;
-				System.out.println("aqui estamos");
+
 				String descripcion = request.getParameter("txtDescripcion");
 				precio = Double.parseDouble(request.getParameter("txtPrecio"));
 				pre = precio;
@@ -156,7 +155,7 @@ public class Controlador extends HttpServlet {
 
 			case "Editar":
 				idp = Integer.parseInt(request.getParameter("id"));
-				System.out.println(idp);
+
 				Producto p = productoDAO.listarId(idp);
 				request.setAttribute("productos", p);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
@@ -164,7 +163,7 @@ public class Controlador extends HttpServlet {
 				break;
 
 			case "Actualizar":
-				System.out.println("Brayan");
+
 				String descripcionUp = request.getParameter("txtDescripcion");
 				double precioUp = Double.parseDouble(request.getParameter("txtPrecio"));
 				int stockUp = Integer.parseInt(request.getParameter("txtStock"));
@@ -184,7 +183,7 @@ public class Controlador extends HttpServlet {
 			case "Eliminar":
 
 				idp = Integer.parseInt(request.getParameter("id"));
-				System.out.println("eliminar el id: " + idp);
+
 				productoDAO.EliminarProducto(idp);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 				break;
@@ -225,7 +224,7 @@ public class Controlador extends HttpServlet {
 				break;
 			case "Editar":
 				idc = Integer.parseInt(request.getParameter("id"));
-				System.out.println(idc);
+
 				Cliente c = clienteDAO.listarId(idc);
 				request.setAttribute("cliente", c);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
@@ -253,7 +252,7 @@ public class Controlador extends HttpServlet {
 			case "Eliminar":
 
 				idc = Integer.parseInt(request.getParameter("id"));
-				System.out.println("eliminar el id: " + idc);
+
 				clienteDAO.Eliminar(idc);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 				break;

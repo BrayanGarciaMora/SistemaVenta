@@ -83,7 +83,7 @@ public class ClienteDAO {
 	public Cliente listarId(int id) {
 		Cliente cliente = new Cliente();
 		String sql = "SELECT * FROM cliente WHERE IdCliente =" + id;
-		System.out.println("el ide es" + id);
+
 		try {
 			con = cn.conexion();
 			ps = con.prepareStatement(sql);
@@ -137,7 +137,7 @@ public class ClienteDAO {
 
 	// ---------------------------------------------Metodo Eliminar---------//
 	public void Eliminar(int id) {
-		System.out.println("El id es " + id);
+
 		String sql = "DELETE FROM cliente WHERE IdCliente =" + id;
 
 		try {
