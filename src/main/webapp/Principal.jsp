@@ -30,11 +30,11 @@
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"
-						class="btn btn-outline-light" href="#">Home</a></li>
+						class="btn btn-outline-light" href="Controlador?menu=Home" target="myFrame">Home</a></li>
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"
-						class="btn btn-outline-light" href="Controlador?menu=Producto" target="myFrame">Producto</a></li>
+						class="btn btn-outline-light" href="Controlador?menu=Producto&accion=Listar" target="myFrame">Producto</a></li>
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"

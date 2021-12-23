@@ -1,6 +1,7 @@
 package controlado;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -24,8 +25,11 @@ public class Controlador extends HttpServlet {
 	// -------------------------------------------
 	Cliente cliente = new Cliente();
 	ClienteDAO clienteDAO = new ClienteDAO();
+	// -------------------------------------------
+	Producto producto = new Producto();
+	ProductoDAO productoDAO = new ProductoDAO();
 
-	int ide, idc;
+	int ide, idc, idp;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -49,12 +53,14 @@ public class Controlador extends HttpServlet {
 
 			request.getRequestDispatcher("Principal.jsp").forward(request, response);
 		}
+
+		// -------------------------------------------------------------------------------------------------------
 		if (menu.equals("Empleado")) {
 
 			switch (accion) {
 
 			case "Listar":
-				List lista = edao.listar();
+				List lista = edao.listarEmpleado();
 				request.setAttribute("empleados", lista);
 
 				break;
@@ -119,7 +125,76 @@ public class Controlador extends HttpServlet {
 
 		// --------------------------------------------------------------------------------------------
 		if (menu.equals("Producto")) {
+			System.out.println("Llego Aqui");
+
+			switch (accion) {
+
+			case "Listar":
+
+				List listaProducto = productoDAO.listarProducto();
+				request.setAttribute("producto", listaProducto);
+				break;
+
+			case "Agregar":
+				double pre;
+				double precio;
+				System.out.println("aqui estamos");
+				String descripcion = request.getParameter("txtDescripcion");
+				precio = Double.parseDouble(request.getParameter("txtPrecio"));
+				pre = precio;
+				int stock = Integer.parseInt(request.getParameter("txtStock"));
+				String estado = request.getParameter("txtEstado");
+
+				producto.setNombre(descripcion);
+				producto.setPrecio(pre);
+				producto.setStock(stock);
+				producto.setEstado(estado);
+
+				productoDAO.agregarProducto(producto);
+				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+				break;
+
+			case "Editar":
+				idp = Integer.parseInt(request.getParameter("id"));
+				System.out.println(idp);
+				Producto p = productoDAO.listarId(idp);
+				request.setAttribute("productos", p);
+				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+
+				break;
+
+			case "Actualizar":
+				System.out.println("Brayan");
+				String descripcionUp = request.getParameter("txtDescripcion");
+				double precioUp = Double.parseDouble(request.getParameter("txtPrecio"));
+				int stockUp = Integer.parseInt(request.getParameter("txtStock"));
+				String estadoUp = request.getParameter("txtEstado");
+
+				producto.setNombre(descripcionUp);
+				producto.setPrecio(precioUp);
+				producto.setStock(stockUp);
+				producto.setEstado(estadoUp);
+
+				producto.setIdProducto(idp);
+				productoDAO.actualizarProducto(producto);
+				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+
+				break;
+
+			case "Eliminar":
+
+				idp = Integer.parseInt(request.getParameter("id"));
+				System.out.println("eliminar el id: " + idp);
+				productoDAO.EliminarProducto(idp);
+				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
+				break;
+
+			default:
+				throw new AssertionError();
+
+			}
 			request.getRequestDispatcher("Producto.jsp").forward(request, response);
+
 		}
 
 		// ------------------------------------------------------------------------------------------
@@ -190,8 +265,15 @@ public class Controlador extends HttpServlet {
 			}
 			request.getRequestDispatcher("Cliente.jsp").forward(request, response);
 		}
+
+		// -------------------------------------------------------------------------------------------------------
 		if (menu.equals("CrearVenta")) {
 			request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
+		}
+
+		if (menu.equals("Home")) {
+
+			request.getRequestDispatcher("Home.jsp").forward(request, response);
 		}
 
 	}

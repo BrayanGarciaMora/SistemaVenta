@@ -14,7 +14,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<h3 align="center">Maestro de Empleado</h3>
 	<div class="d-flex">
 		<div class="card col-sm-4">
 			<div class="card-body">

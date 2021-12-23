@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,19 +12,17 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Producto</h1>
-
-
-
+<h3 align="center">Maestro de producto</h3>
+	
 	<div class="d-flex">
 		<div class="card col-sm-4">
 			<div class="card-body">
-				<form action="">
+				<form action="Controlador?menu=Producto" method="POST">
 				
-					<div class="mb-2"><label>Descripcion</label> <input class="form-control" type="text" value="" name="txtDescripcion"></div>
-					<div class="mb-2"><label>Precio</label><input class="form-control" type="text" value="" name="txtPrecio"></div>
-					<div class="mb-2"><label>Stock</label><input class="form-control" type="text" value="" name="txtStock"></div>
-					<div class="mb-2"><label>Estato</label><input class="form-control" type="text" value="" name="txtEstado"></div>
+					<div class="mb-2"><label>Descripcion</label> <input class="form-control" type="text" value="${productos.getNombre() }" name="txtDescripcion"></div>
+					<div class="mb-2"><label>Precio</label><input class="form-control" type="text" value="${productos.getPrecio() }" name="txtPrecio"></div>
+					<div class="mb-2"><label>Stock</label><input class="form-control" type="text" value="${productos.getStock() }" name="txtStock"></div>
+					<div class="mb-2"><label>Estato</label><input class="form-control" type="text" value="${productos.getEstado() }" name="txtEstado"></div>
 				
 				<input type="submit" name="accion" value="Agregar" class="btn btn-info">
 				<input type="submit" name="accion" value="Actualizar" class="btn btn-success">
@@ -51,13 +50,22 @@
 
 
 				<tbody>
-				<tr>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
-				<th></th>
+				<c:forEach var="pro" items="${producto}">
+					<tr>
+				<td>${pro.getNombre()}</td>
+				<td>${pro.getPrecio() }</td>
+				<td>${pro.getStock() }</td>
+				<td>${pro.getEstado() }</td>
+				<td>
+				<a class="btn btn-warning" href="Controlador?menu=Producto&accion=Editar&id=${pro.getIdProducto()}">Editar </a> 
+				<a class="btn btn-danger" href="Controlador?menu=Producto&accion=Eliminar&id=${pro.getIdProducto()}">Eliminar</a>
+				</td>
+				
+				
 				</tr>
+				
+				</c:forEach>
+			
 
 				</tbody>
 

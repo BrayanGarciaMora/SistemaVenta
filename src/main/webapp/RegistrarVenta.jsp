@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,19 +15,19 @@
 </head>
 <body>
 
-<h1>Registrar una venta</h1>
+	<h1>Registrar una venta</h1>
 
-<div class="d-flex flex-row bd-highlight mb-3">
-  <div class="p-2 bd-highlight">Flex item 1</div>
-  <div class="p-2 bd-highlight">Flex item 2</div>
-  <div class="p-2 bd-highlight">Flex item 3</div>
-</div>
-<div class="d-flex flex-row-reverse bd-highlight">
-  <div class="p-2 bd-highlight">Flex item 1</div>
-  <div class="p-2 bd-highlight">Flex item 2</div>
-  <div class="p-2 bd-highlight">Flex item 3</div>
-</div>
-<script
+	<div class="d-flex flex-row bd-highlight mb-3">
+		<div class="p-2 bd-highlight">Flex item 1</div>
+		<div class="p-2 bd-highlight">Flex item 2</div>
+		<div class="p-2 bd-highlight">Flex item 3</div>
+	</div>
+	<div class="d-flex flex-row-reverse bd-highlight">
+		<div class="p-2 bd-highlight">Flex item 1</div>
+		<div class="p-2 bd-highlight">Flex item 2</div>
+		<div class="p-2 bd-highlight">Flex item 3</div>
+	</div>
+	<script
 		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 		integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
 		crossorigin="anonymous"></script>

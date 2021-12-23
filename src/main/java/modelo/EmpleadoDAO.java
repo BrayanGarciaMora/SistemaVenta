@@ -52,7 +52,7 @@ public class EmpleadoDAO {
 	// Metodo par realizar la parete del [Read] Del CRUD
 
 	// ---------------------------------------------Metodo Listar---------//
-	public List listar() {
+	public List listarEmpleado() {
 
 		String sql = "SELECT * FROM empleado";
 
