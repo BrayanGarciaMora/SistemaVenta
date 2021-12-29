@@ -46,7 +46,7 @@
 
 					<li class="nav-item"><a
 						style="margen-left: 10px; border: none;"
-						class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta" target="myFrame">Nueva Venta</a></li>
+						class="btn btn-outline-light" href="Controlador?menu=RegistrarVenta&accion=default" target="myFrame">Nueva Venta</a></li>
 				</ul>
 
 				<div class="dropdown">

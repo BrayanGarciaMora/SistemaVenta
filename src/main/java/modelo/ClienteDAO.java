@@ -16,6 +16,36 @@ public class ClienteDAO {
 	int r;
 	// ---------------------------------------------------------------------
 
+	public Cliente buscarCliente(String dni) {
+
+		Cliente c = new Cliente();
+
+		// Crear consulta sql para la busqueda
+		String sql = "SELECT * FROM cliente WHERE Dni =" + dni;
+
+		try {
+			// Crear la conexion
+			con = cn.conexion();
+			// Prepara la consulta
+			ps = con.prepareStatement(sql);
+			rs = ps.executeQuery();
+
+			while (rs.next()) {
+				c.setIdCliente(rs.getInt(1));
+				c.setDni(rs.getString(2));
+				c.setNombre(rs.getString(3));
+				c.setDireccion(rs.getString(4));
+				c.setEstado(rs.getString(5));
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println("Algo no anda bien 'Consulta clientes'");
+			e.getStackTrace();
+		}
+		return c;
+	}
 	// ---------------------------------------------Metodo Listar---------//
 
 	public List listarCliente() {

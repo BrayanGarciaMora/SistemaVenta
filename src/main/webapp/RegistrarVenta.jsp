@@ -18,7 +18,7 @@
 	<div class="d-flex">
 		<div class="col-sm-4">
 			<div class="card">
-				<form action="Controlado" method="post">
+				<form action="Controlador?menu=RegistrarVenta" method="post">
 					<div class="card-body">
 						<div class="form-group">
 							<label>Datos del cliente</label>
@@ -26,13 +26,13 @@
 
 						<div class="form-group d-flex">
 							<div class="col-sm-6 d-flex">
-								<input type="text" name="CodigoCliente" class="form-control"
-									placeholder="Codigo"> <input type="submit"
-									name="accion" value="Buscar" class="btn btn-outline-info">
+								<input type="text" name="codigoCliente" value="${c.getDni() }" class="form-control"
+									placeholder="Codigo"> 
+								<input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
 							</div>
 
 							<div class="col-sm-6">
-								<input type="text" name="CodigoCliente" class="form-control"
+								<input type="text" name="nombreCliente" value="${c.getNombre() }" class="form-control"
 									placeholder="Cliente">
 							</div>
 						</div>
@@ -42,20 +42,20 @@
 						</div>
 						<div class="form-group d-flex">
 							<div class="col-sm-6 d-flex">
-								<input type="text" name="CodigoProducto" class="form-control"
+								<input type="text" name="codigoProducto" class="form-control"
 									placeholder="Codigo"> <input type="submit"
 									name="accion" value="Buscar" class="btn btn-outline-info">
 							</div>
 
 							<div class="col-sm-6">
-								<input type="text" name="CodigoCliente" class="form-control"
-									placeholder="Cliente">
+								<input type="text" name="codigoCliente" class="form-control"
+									placeholder="Datos Producto">
 							</div>
 						</div>
 						<div class="form-group d-flex">
 							<div class="col-sm-6 d-flex">
 								<input type="text" name="precio" class="form-control"
-									placeholder="Codigo">
+									placeholder="$/0.00">
 							</div>
 
 							<div class="col-sm-3">

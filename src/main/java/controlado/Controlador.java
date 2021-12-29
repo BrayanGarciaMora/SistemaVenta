@@ -267,6 +267,18 @@ public class Controlador extends HttpServlet {
 
 		// -------------------------------------------------------------------------------------------------------
 		if (menu.equals("RegistrarVenta")) {
+			
+			
+			switch (accion) {
+		
+			case "Buscar":
+				System.out.print("hola");
+				String dni= request.getParameter("codigoCliente");
+				cliente.setDni(dni);
+				cliente = clienteDAO.buscarCliente(dni);
+				request.setAttribute("c", cliente);
+				break;
+			}
 			request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
 		}
 
