@@ -73,8 +73,8 @@
 	</nav>
 	
 	
-	<div class="mb-4"  style="height: 500px;">
-	<iframe name="myFrame" style="height: 100%; width: 100%; border: none;"></iframe>
+	<div class="mb-2"  style="height: 500px;">
+	<iframe name="myFrame" style="height: 100%; width: 100%; border: 3;"></iframe>
 	</div>
 	
 	

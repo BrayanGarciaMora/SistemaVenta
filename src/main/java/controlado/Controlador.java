@@ -266,7 +266,7 @@ public class Controlador extends HttpServlet {
 		}
 
 		// -------------------------------------------------------------------------------------------------------
-		if (menu.equals("CrearVenta")) {
+		if (menu.equals("RegistrarVenta")) {
 			request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
 		}
 
