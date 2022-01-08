@@ -13,7 +13,7 @@
 </head>
 <body>
 
-	<h1>Registrar una venta</h1>
+	<h4 align="center">Registrar una venta</h4>
 
 	<div class="d-flex">
 		<div class="col-sm-4">

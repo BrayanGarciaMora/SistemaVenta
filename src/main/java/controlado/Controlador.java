@@ -19,17 +19,17 @@ import modelo.*;
 public class Controlador extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	Empleado em = new Empleado();
-	EmpleadoDAO edao = new EmpleadoDAO();
+	Empleado objetoEmpleado = new Empleado();
+	EmpleadoDAO empleadoDAO = new EmpleadoDAO();
 
 	// -------------------------------------------
-	Cliente cliente = new Cliente();
+	Cliente objetoCliente = new Cliente();
 	ClienteDAO clienteDAO = new ClienteDAO();
 	// -------------------------------------------
-	Producto producto = new Producto();
+	Producto objetoProducto = new Producto();
 	ProductoDAO productoDAO = new ProductoDAO();
 
-	int ide, idc, idp;
+	int idEmpleado, idCliente, idProducto;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -60,7 +60,7 @@ public class Controlador extends HttpServlet {
 			switch (accion) {
 
 			case "Listar":
-				List lista = edao.listarEmpleado();
+				List lista = empleadoDAO.listarEmpleado();
 				request.setAttribute("empleados", lista);
 
 				break;
@@ -72,20 +72,20 @@ public class Controlador extends HttpServlet {
 				String telefono = request.getParameter("txtTelefono");
 				String estado = request.getParameter("txtEstado");
 				String user = request.getParameter("txtUsuario");
-				em.setDni(dni);
-				em.setNombre(nombre);
-				em.setTelefono(telefono);
-				em.setEstado(estado);
-				em.setUser(user);
+				objetoEmpleado.setDni(dni);
+				objetoEmpleado.setNombre(nombre);
+				objetoEmpleado.setTelefono(telefono);
+				objetoEmpleado.setEstado(estado);
+				objetoEmpleado.setUser(user);
 
-				edao.agregar(em);
+				empleadoDAO.agregar(objetoEmpleado);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
 			case "Editar":
-				ide = Integer.parseInt(request.getParameter("id"));
+				idEmpleado = Integer.parseInt(request.getParameter("id"));
 
-				Empleado e = edao.listarId(ide);
+				Empleado e = empleadoDAO.listarId(idEmpleado);
 				request.setAttribute("empleado", e);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
@@ -96,22 +96,22 @@ public class Controlador extends HttpServlet {
 				String telefonoUp = request.getParameter("txtTelefono");
 				String estadoUp = request.getParameter("txtEstado");
 				String userUp = request.getParameter("txtUsuario");
-				em.setDni(dniUp);
-				em.setNombre(nombreUp);
-				em.setTelefono(telefonoUp);
-				em.setEstado(estadoUp);
-				em.setUser(userUp);
+				objetoEmpleado.setDni(dniUp);
+				objetoEmpleado.setNombre(nombreUp);
+				objetoEmpleado.setTelefono(telefonoUp);
+				objetoEmpleado.setEstado(estadoUp);
+				objetoEmpleado.setUser(userUp);
 
-				em.setIdEmpleado(ide);
-				edao.actualizar(em);
+				objetoEmpleado.setIdEmpleado(idEmpleado);
+				empleadoDAO.actualizar(objetoEmpleado);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
 			case "Eliminar":
 
-				ide = Integer.parseInt(request.getParameter("id"));
+				idEmpleado = Integer.parseInt(request.getParameter("id"));
 
-				edao.Eliminar(ide);
+				empleadoDAO.Eliminar(idEmpleado);
 				request.getRequestDispatcher("Controlador?menu=Empleado&accion=Listar").forward(request, response);
 				break;
 
@@ -144,20 +144,20 @@ public class Controlador extends HttpServlet {
 				int stock = Integer.parseInt(request.getParameter("txtStock"));
 				String estado = request.getParameter("txtEstado");
 
-				producto.setNombre(descripcion);
-				producto.setPrecio(pre);
-				producto.setStock(stock);
-				producto.setEstado(estado);
+				objetoProducto.setNombre(descripcion);
+				objetoProducto.setPrecio(pre);
+				objetoProducto.setStock(stock);
+				objetoProducto.setEstado(estado);
 
-				productoDAO.agregarProducto(producto);
+				productoDAO.agregarProducto(objetoProducto);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 				break;
 
 			case "Editar":
-				idp = Integer.parseInt(request.getParameter("id"));
+				idProducto = Integer.parseInt(request.getParameter("id"));
 
-				Producto p = productoDAO.listarId(idp);
-				request.setAttribute("productos", p);
+				Producto producto = productoDAO.listarId(idProducto);
+				request.setAttribute("productos", producto);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 
 				break;
@@ -169,22 +169,22 @@ public class Controlador extends HttpServlet {
 				int stockUp = Integer.parseInt(request.getParameter("txtStock"));
 				String estadoUp = request.getParameter("txtEstado");
 
-				producto.setNombre(descripcionUp);
-				producto.setPrecio(precioUp);
-				producto.setStock(stockUp);
-				producto.setEstado(estadoUp);
+				objetoProducto.setNombre(descripcionUp);
+				objetoProducto.setPrecio(precioUp);
+				objetoProducto.setStock(stockUp);
+				objetoProducto.setEstado(estadoUp);
 
-				producto.setIdProducto(idp);
-				productoDAO.actualizarProducto(producto);
+				objetoProducto.setIdProducto(idProducto);
+				productoDAO.actualizarProducto(objetoProducto);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 
 				break;
 
 			case "Eliminar":
 
-				idp = Integer.parseInt(request.getParameter("id"));
+				idProducto = Integer.parseInt(request.getParameter("id"));
 
-				productoDAO.EliminarProducto(idp);
+				productoDAO.EliminarProducto(idProducto);
 				request.getRequestDispatcher("Controlador?menu=Producto&accion=Listar").forward(request, response);
 				break;
 
@@ -214,19 +214,19 @@ public class Controlador extends HttpServlet {
 				String direccion = request.getParameter("txtDireccion");
 				String estado = request.getParameter("txtEstado");
 
-				cliente.setDni(dni);
-				cliente.setNombre(nombre);
-				cliente.setDireccion(direccion);
-				cliente.setEstado(estado);
+				objetoCliente.setDni(dni);
+				objetoCliente.setNombre(nombre);
+				objetoCliente.setDireccion(direccion);
+				objetoCliente.setEstado(estado);
 
-				clienteDAO.agregar(cliente);
+				clienteDAO.agregar(objetoCliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 				break;
 			case "Editar":
-				idc = Integer.parseInt(request.getParameter("id"));
+				idCliente = Integer.parseInt(request.getParameter("id"));
 
-				Cliente c = clienteDAO.listarId(idc);
-				request.setAttribute("cliente", c);
+				Cliente cliente = clienteDAO.listarId(idCliente);
+				request.setAttribute("cliente", cliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 
 				break;
@@ -238,22 +238,22 @@ public class Controlador extends HttpServlet {
 				String direccionUp = request.getParameter("txtDireccion");
 				String estadoUp = request.getParameter("txtEstado");
 
-				cliente.setDni(dniUp);
-				cliente.setNombre(nombreUp);
-				cliente.setDireccion(direccionUp);
-				cliente.setEstado(estadoUp);
+				objetoCliente.setDni(dniUp);
+				objetoCliente.setNombre(nombreUp);
+				objetoCliente.setDireccion(direccionUp);
+				objetoCliente.setEstado(estadoUp);
 
-				cliente.setIdCliente(idc);
-				clienteDAO.actualizar(cliente);
+				objetoCliente.setIdCliente(idCliente);
+				clienteDAO.actualizar(objetoCliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 
 				break;
 
 			case "Eliminar":
 
-				idc = Integer.parseInt(request.getParameter("id"));
+				idCliente = Integer.parseInt(request.getParameter("id"));
 
-				clienteDAO.Eliminar(idc);
+				clienteDAO.Eliminar(idCliente);
 				request.getRequestDispatcher("Controlador?menu=Cliente&accion=Listar").forward(request, response);
 				break;
 
@@ -267,16 +267,15 @@ public class Controlador extends HttpServlet {
 
 		// -------------------------------------------------------------------------------------------------------
 		if (menu.equals("RegistrarVenta")) {
-			
-			
+
 			switch (accion) {
-		
+
 			case "Buscar":
 				System.out.print("hola");
-				String dni= request.getParameter("codigoCliente");
-				cliente.setDni(dni);
-				cliente = clienteDAO.buscarCliente(dni);
-				request.setAttribute("c", cliente);
+				String dni = request.getParameter("codigoCliente");
+				objetoCliente.setDni(dni);
+				objetoCliente = clienteDAO.buscarCliente(dni);
+				request.setAttribute("c", objetoCliente);
 				break;
 			}
 			request.getRequestDispatcher("RegistrarVenta.jsp").forward(request, response);
