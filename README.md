@@ -10,9 +10,6 @@ Los objetivos que se persigen:
 
 
 
-## Estructura del poryecto
-
-
 ##  Herramientas
 
 > Entorno de desarrollo Integrado(IDE): Eclipse
@@ -23,6 +20,7 @@ Los objetivos que se persigen:
 
 >Mysql con el (IDE) WorkBench
 
+## Estructura del poryecto(MVC)
 
 #### Para la estructura de este Proyecto tenemos las siguientes capas:
 
