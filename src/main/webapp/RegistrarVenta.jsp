@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="core" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,13 +27,15 @@
 
 						<div class="form-group d-flex">
 							<div class="col-sm-6 d-flex">
-								<input type="text" name="codigoCliente" value="${c.getDni() }" class="form-control"
-									placeholder="Codigo"> 
-								<input type="submit" name="accion" value="Buscar" class="btn btn-outline-info">
+								<input type="text" name="codigoCliente" value="${c.getDni() }"
+									class="form-control" placeholder="Codigo"> <input
+									type="submit" name="accion" value="Cliente"
+									class="btn btn-outline-info">
 							</div>
 
 							<div class="col-sm-6">
-								<input type="text" name="nombreCliente" value="${c.getNombre() }" class="form-control"
+								<input type="text" name="nombreCliente"
+									value="${c.getNombre() }" class="form-control"
 									placeholder="Cliente">
 							</div>
 						</div>
@@ -44,28 +47,30 @@
 							<div class="col-sm-6 d-flex">
 								<input type="text" name="codigoProducto" class="form-control"
 									placeholder="Codigo"> <input type="submit"
-									name="accion" value="Buscar" class="btn btn-outline-info">
+									name="accion" value="Producto" class="btn btn-outline-info">
 							</div>
 
 							<div class="col-sm-6">
-								<input type="text" name="codigoCliente" class="form-control"
+								<input type="text" name="nombreProducto"
+									value="${producto.getNombre() }" class="form-control"
 									placeholder="Datos Producto">
 							</div>
 						</div>
 						<div class="form-group d-flex">
 							<div class="col-sm-6 d-flex">
-								<input type="text" name="precio" class="form-control"
+								<input type="text" name="precio"
+									value="${producto.getPrecio() }" class="form-control"
 									placeholder="$/0.00">
 							</div>
 
 							<div class="col-sm-3">
-								<input type="number" name="cantidad" class="form-control"
-									placeholder="cantidad">
+								<input type="number" name="cantidad" value="1"
+									class="form-control" placeholder="cantidad">
 							</div>
 
 							<div class="col-sm-3">
-								<input type="text" name="stock" class="form-control"
-									placeholder="stock">
+								<input type="text" name="stock" value="${producto.getStock() }"
+									class="form-control" placeholder="stock">
 							</div>
 						</div>
 
@@ -78,7 +83,7 @@
 			</div>
 		</div>
 
-		<div class="col-sm-7">
+		<div class="col-sm-8">
 			<div>
 				<div class="card">
 					<div class="card-body">
@@ -101,26 +106,34 @@
 							</tr>
 						</thead>
 						<tbody>
-							<tr>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
-								<td></td>
+							<core:forEach var="lista" items="${listaVenta}">
+								<tr>
+									<td>${lista.getItem() }</td>
+									<td>${lista.getId()}</td>
+									<td>${lista.getDescripcionProducto()}</td>
+									<td>${lista.getPrecio() }</td>
+									<td>${lista.getCantidad() }</td>
+									<td>${lista.getSubTotal	() }</td>
+									<td><a href="#" class="btn btn-warning">Editar</a> <a
+										href="#" class="btn btn-danger">Eliminar</a></td>
 
-							</tr>
-
+								</tr>
+							</core:forEach>
 						</tbody>
 					</table>
 				</div>
-				
-				<div class="card-footer">
-				<div>
-				<input type="submit" name="accion" value="Generar Venta" class="btn btn-success">
-				<input type="submit" name="accion" value="Cancelar" class="btn btn-danger">
-				</div>
+
+				<div class="card-footer d-flex">
+					<div class="col-sm-6">
+						<input type="submit" name="accion" value="Generar Venta"
+							class="btn btn-success">
+						 <input type="submit"
+							name="accion" value="Cancelar" class="btn btn-danger">
+					</div>
+					<div class="col-sm-4 ml-auto">
+					<input type="text" name="txtTotal" value="RD$ ${totalpago }" class="form-control">
+					
+					</div>
 				</div>
 
 			</div>

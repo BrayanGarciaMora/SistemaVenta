@@ -77,7 +77,7 @@ public class ProductoDAO {
 
 	// -----------------------------------------------------------------------------
 
-	public Producto listarId(int id) {
+	public Producto listarIdProducto(int id) {
 		Producto producto = new Producto();
 		String sql = "SELECT * FROM producto WHERE IdProducto =" + id;
 		try {
